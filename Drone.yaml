@@ -1,9 +1,11 @@
-#Drone CI File!
-#Commit Message: Drone! Captain Canary is here! 
-
+---
 kind: pipeline
 type: docker
-name: default
+name: arm-build
+
+platform:
+  os: linux
+  arch: arm
 
 steps:
 
@@ -21,4 +23,32 @@ steps:
       from_secret: docker_password
     repo: bgulla/repo
     auto_tag: true
-    auto_tag_suffix: drone-build
+    auto_tag_suffix: drone-build-arm
+
+---
+
+kind: pipeline
+type: docker
+name: amd64-build
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+
+- name: build
+  image: golang:1.13
+  commands:
+    - "go build -o ./myapp"
+
+- name: publish  
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: bgulla/repo
+    auto_tag: true
+    auto_tag_suffix: drone-build-amd63
