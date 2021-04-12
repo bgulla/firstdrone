@@ -2,7 +2,7 @@
 #Commit Message: Drone! Captain Canary is here! 
 
 kind: pipeline
-type: kubernetes
+type: docker
 name: default
 
 steps:
@@ -19,6 +19,6 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
-    repo: rlachhman/myrepo
+    repo: bgulla/repo
     auto_tag: true
     auto_tag_suffix: drone-build
