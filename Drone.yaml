@@ -74,3 +74,6 @@ steps:
     platforms:
       - linux/amd64
       - linux/arm
+  depends_on:
+  - amd64-build
+  - arm-build
