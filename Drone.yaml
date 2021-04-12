@@ -52,4 +52,21 @@ steps:
     repo: bgulla/repo
     auto_tag: true
     auto_tag_suffix: drone-build-amd64
-    
+
+---
+kind: pipeline
+name: default
+
+steps:
+- name: manifest
+  image: plugins/manifest
+  settings:
+    username: 
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    target: bgulla/repo:production
+    template: bgulla/repo:drone-build-ARCH
+    platforms:
+      - linux/amd64
+      - linux/arm64
