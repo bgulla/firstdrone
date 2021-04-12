@@ -1,4 +1,5 @@
 ---
+## ARM64 Docker Build
 kind: pipeline
 type: docker
 name: arm-build
@@ -26,7 +27,7 @@ steps:
     auto_tag_suffix: drone-build-arm
 
 ---
-
+## AMD64 Docker Build
 kind: pipeline
 type: docker
 name: amd64-build
@@ -54,6 +55,9 @@ steps:
     auto_tag_suffix: drone-build-amd64
 
 ---
+## Docker Manifest Step- combines both architectures into a multi-tagged image. The docker client will pull the appropriate image based on the client's architecture.
+### TODO: this is not-waiting for the other build steps to complete and therefore tagging the last build's images. fix this.
+
 kind: pipeline
 name: default
 
