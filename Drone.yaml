@@ -5,7 +5,7 @@ name: arm-build
 
 platform:
   os: linux
-  arch: arm64
+  arch: arm
 
 steps:
 
@@ -69,4 +69,4 @@ steps:
     template: bgulla/repo:drone-build-ARCH
     platforms:
       - linux/amd64
-      - linux/arm64
+      - linux/arm
