@@ -5,7 +5,7 @@ name: arm-build
 
 platform:
   os: linux
-  arch: arm
+  arch: arm64
 
 steps:
 
@@ -51,4 +51,5 @@ steps:
       from_secret: docker_password
     repo: bgulla/repo
     auto_tag: true
-    auto_tag_suffix: drone-build-amd63
+    auto_tag_suffix: drone-build-amd64
+    
