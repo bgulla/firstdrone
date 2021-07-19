@@ -2,11 +2,11 @@
 ## ARM64 Docker Build
 kind: pipeline
 type: docker
-name: arm-build
+name: arm64-build
 
 platform:
   os: linux
-  arch: arm
+  arch: arm64
 
 steps:
 
@@ -73,7 +73,7 @@ steps:
     template: bgulla/repo:drone-build-ARCH
     platforms:
       - linux/amd64
-      - linux/arm
+      - linux/arm64
 depends_on:
 - amd64-build
-- arm-build
+- arm64-build
