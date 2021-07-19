@@ -24,7 +24,7 @@ steps:
       from_secret: docker_password
     repo: bgulla/repo
     auto_tag: true
-    auto_tag_suffix: drone-build-arm
+    auto_tag_suffix: drone-build-arm64
 
 ---
 ## AMD64 Docker Build
